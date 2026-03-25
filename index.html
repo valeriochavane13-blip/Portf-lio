@@ -1,182 +1,117 @@
 <!DOCTYPE html>
-<html lang="pt-MZ">
+<html lang="pt-mz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elias Valério Chavane | Portfólio de Alta Qualidade</title>
+    <title>Elias Valério Chavane | Portfolio Profissional</title>
     <style>
-        :root {
-            --primary: #2c3e50; 
-            --accent: #e67e22;  
-            --light: #f4f7f6;
-            --dark: #1a1a1a;
-        }
-
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--light); color: var(--dark); scroll-behavior: smooth; }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f8fafc; color: #1e293b; }
         
-        /* Cabeçalho com Imagem de Fundo (Hero Image) */
-        header { 
-            position: relative;
-            background-image: url('capa.jpg'); /* A imagem de capa.jpg deve estar na mesma pasta */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white; 
-            padding: 5rem 1rem; 
-            text-align: center; 
-            border-bottom: 6px solid var(--accent);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        /* CABEÇALHO COM LOCALIZAÇÃO */
+        .hero { 
+            height: 500px; 
+            background: #0f172a url('Capa.jpg') no-repeat center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            color: white; text-align: center; padding: 20px;
+            box-shadow: inset 0 0 0 1000px rgba(15, 23, 42, 0.65);
         }
-
-        /* Sobreposição Escura para Contrastar o Texto */
-        header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Escurece 40% para legibilidade */
-            z-index: 1;
+        .foto-perfil { 
+            width: 140px; height: 140px; border-radius: 50%; 
+            border: 4px solid white; background: #334155 url('perfil.jpg') no-repeat center/cover;
+            margin-bottom: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
+        .hero h1 { font-size: 1.8rem; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
+        .hero .loc { margin-top: 10px; font-size: 0.9rem; opacity: 0.9; font-weight: bold; color: #f97316; }
+        
+        /* BOTÕES DE AÇÃO */
+        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 25px; }
+        .btn { padding: 12px 22px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.85rem; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .btn-cv { background: #f97316; color: white; border: 2px solid #f97316; }
+        .btn-whatsapp { background: #25d366; color: white; border: 2px solid #25d366; }
 
-        /* Garante que o conteúdo fique acima do fundo escuro */
-        header img, header h1, header p {
-            position: relative;
-            z-index: 2;
+        .container { max-width: 900px; margin: 0 auto; padding: 30px 15px; }
+        
+        /* SEÇÃO SOBRE MIM */
+        .sobre-mim { 
+            background: white; padding: 30px; border-radius: 15px; 
+            margin-bottom: 40px; border-left: 6px solid #f97316;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
+        .sobre-mim h2 { color: #0f172a; margin: 0 0 15px 0; font-size: 1.4rem; text-transform: uppercase; }
+        .sobre-mim p { line-height: 1.7; font-size: 1rem; color: #334155; }
 
-        header h1 {
-            font-size: 1.8rem;
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Sombra no texto */
+        /* BLOCOS DE PROJETOS */
+        .projeto-box { 
+            background: white; border-radius: 15px; margin-bottom: 35px; 
+            overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid #0f172a;
         }
+        .projeto-box img { width: 100%; height: 300px; object-fit: cover; background: #eee; }
+        .projeto-info { padding: 25px; }
+        .projeto-info h3 { color: #f97316; margin: 0 0 10px 0; font-size: 1.25rem; text-transform: uppercase; }
+        .projeto-info p { line-height: 1.6; color: #475569; }
 
-        header p {
-            font-size: 1rem;
-            margin-top: 0;
-            opacity: 0.9;
-            font-weight: bold;
-        }
-
-        /* Foto de Perfil com Sombra Projetada */
-        .profile-img { 
-            width: 160px; 
-            height: 160px; 
-            border-radius: 50%; 
-            border: 5px solid var(--accent); 
-            object-fit: cover; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5); /* Sombra mais forte para design moderno */
-        }
-
-        /* Menu de Navegação Fixo */
-        nav { 
-            background: rgba(255, 255, 255, 0.95); 
-            padding: 12px; 
-            text-align: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-            display: flex; 
-            justify-content: center; 
-            gap: 15px; 
-            overflow-x: auto; 
-            backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
-        }
-        nav a { text-decoration: none; color: var(--primary); font-size: 0.85rem; font-weight: bold; padding: 10px 18px; border: 2px solid var(--primary); border-radius: 25px; white-space: nowrap; transition: 0.3s; }
-        nav a:hover { background: var(--primary); color: white; }
-
-        .container { max-width: 1100px; margin: auto; padding: 2rem; }
-        h2 { color: var(--primary); border-left: 8px solid var(--accent); padding-left: 18px; margin-top: 4rem; text-transform: uppercase; font-size: 1.3rem; letter-spacing: 1px; }
-
-        /* Estilo das Certificações MOP/HST */
-        .cert-box { background: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 6px solid #2e7d32; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 10px; }
-        .cert-box strong { color: #2e7d32; }
-
-        /* Grid da Galeria com Efeito de Design */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 1.5rem; }
-        .portfolio-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: 0.4s; }
-        .portfolio-item:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-        .portfolio-item img { width: 100%; height: 260px; object-fit: cover; }
-        .portfolio-item .info { padding: 18px; text-align: center; font-weight: bold; font-size: 0.95rem; border-top: 1px solid #eee; }
-
-        /* Botão WhatsApp Fixo Moderno (Canto Superior Direito) */
-        .btn-whats { 
-            position: fixed; top: 110px; right: 20px; /* Posicionado abaixo do menu fixo */
-            background: #25d366; color: white; width: 65px; height: 65px; 
-            border-radius: 50%; text-align: center; font-size: 32px; 
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4); z-index: 1001;
-            text-decoration: none; display: flex; align-items: center; justify-content: center;
-            transition: 0.3s;
-        }
-        .btn-whats:hover { transform: scale(1.1); }
-
-        footer { text-align: center; padding: 3rem; background: var(--primary); color: white; margin-top: 5rem; font-size: 0.85rem; border-top: 4px solid var(--accent); }
+        footer { background: #0f172a; color: white; padding: 50px 20px; text-align: center; }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="perfil.jpg" alt="Elias Valério Chavane" class="profile-img">
-    <h1>Elias Valério Chavane</h1>
-    <p>Técnico de Construção (MOP) | Designer Gráfico | Projetista 3D</p>
-</header>
-
-<nav>
-    <a href="#construcao">OBRAS TÉCNICAS</a>
-    <a href="#arquitetura">RENDERS 3D</a>
-    <a href="#design">DESIGN & PUBLICIDADE</a>
-</nav>
-
-<div class="container">
-    
-    <section>
-        <h2>Qualificações Profissionais</h2>
-        <p>Acreditações oficiais para empresas e projetos em Matola e Maputo.</p>
-        <div class="cert-box"><strong>✓ MOP:</strong> Carteira Profissional MOP para Técnico de Obras Públicas.</div>
-        <div class="cert-box"><strong>✓ HST:</strong> Certificado de Higiene, Segurança e Trabalho em Altura.</div>
-    </section>
-
-    <section id="construcao">
-        <h2>Engenharia & Construção Civil</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="obra1.jpg" alt="Fiscalização de Obra">
-                <div class="info">Fiscalização Técnica e Execução de Reboco</div>
-            </div>
-            </div>
-    </section>
-
-    <section id="arquitetura">
-        <h2>Arquitetura & Renderização 3D</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item"><img src="3d-1.jpg" alt="Maquete Eletrónica Noturna"><div class="info">Visualização 8K/HDR - Render Noturno Moderno</div></div>
-            <div class="portfolio-item"><img src="3d-2.jpg" alt="Fachada Contemporânea"><div class="info">Design de Fachada - Estilo Contemporâneo</div></div>
+    <header class="hero">
+        <div class="foto-perfil"></div>
+        <h1>ELIAS VALÉRIO CHAVANE</h1>
+        <p style="margin: 5px 0;">Técnico de Construção (MOP) | Designer Gráfico 8K</p>
+        
+        <div class="loc">📍 Matola, Moçambique | 🌍 Disponível para Europa</div>
+        
+        <div class="btn-group">
+            <a href="CV_Elias_Chavane.pdf" download class="btn btn-cv">📄 BAIXAR CURRÍCULO</a>
+            <a href="https://wa.me/258835367704" class="btn btn-whatsapp">💬 WHATSAPP DIRETO</a>
         </div>
-    </section>
+    </header>
 
-    <section id="design">
-        <h2>Design Gráfico & Publicidade</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item"><img src="design1.jpg" alt="Sinalética Corporativa"><div class="info">Sinalética em Vidro (RED Transport Moçambique)</div></div>
-            <div class="portfolio-item"><img src="design2.jpg" alt="Bordados Profissionais"><div class="info">Design Têxtil / Personalização de Fardamento</div></div>
+    <div class="container">
+
+        <section class="sobre-mim">
+            <h2>Sobre Mim</h2>
+            <p>Profissional polivalente licenciado pelo Ministério das Obras Públicas (MOP), com sólida base técnica em <strong>Engenharia Civil</strong>. Minha trajetória une a experiência industrial na <strong>Mozal/Belutécnica</strong> e gestão na <strong>Piscinas África</strong> à expertise em <strong>Design Visual e Maquetes 3D</strong>.</p>
+            <p>Especialista em segurança (HST), entrego soluções precisas e visualmente impactantes, com foco em resultados de alta performance e disponibilidade para projetos internacionais.</p>
+        </section>
+
+        <div class="projeto-box">
+            <img src="obra1.jpg">
+            <div class="projeto-info">
+                <h3>Obras & Fiscalização</h3>
+                <p>Experiência em manutenção industrial e gestão de canteiros. Foco total em normas de segurança e qualidade técnica na execução de projetos estruturais.</p>
+            </div>
         </div>
-    </section>
-</div>
 
-<a href="https://wa.me/258835367704?text=Olá Elias, vi seu portfólio e gostaria de um orçamento." class="btn-whats" title="Solicitar Orçamento via WhatsApp">
-    <span>WA</span>
-</a>
+        <div class="projeto-box">
+            <img src="3d-1.jpg">
+            <div class="projeto-info">
+                <h3>Projetos 3D 8K</h3>
+                <p>Transformação de plantas técnicas em visualizações tridimensionais realistas, facilitando a interpretação e venda de projetos complexos.</p>
+            </div>
+        </div>
 
-<footer>
-    <p>&copy; 2026 Elias Valério Chavane | Matola - Moçambique<br>Precisão Técnica e Criatividade Visual.</p>
-</footer>
+        <div class="projeto-box">
+            <img src="design1.jpg">
+            <div class="projeto-info">
+                <h3>Identidade & Branding</h3>
+                <p>Criação de marcas corporativas e sinalização técnica com acabamento profissional para o setor de construção e serviços industriais.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><strong>Elias Valério Chavane</strong></p>
+        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 10px;">
+            📧 eliaschavane23@gmail.com | 📞 +258 83 536 7704<br>
+            Matola - Moçambique | 2026
+        </p>
+    </footer>
 
 </body>
 </html>
+
+        /* Grid da Galep-8
